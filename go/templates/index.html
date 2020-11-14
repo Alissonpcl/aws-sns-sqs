@@ -1,0 +1,21 @@
+{{define "Index"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Websocket</title>
+    </head>
+    <body>
+    <h1>Websocket</h1>
+    <br/><br/><br/>
+    <div id="content"></div>
+
+    <script type="text/javascript">
+        let ws = new WebSocket("ws://localhost:5000/websocket");
+        ws.onmessage = function (event) {
+            document.getElementById("content").innerHTML += `${event.data}<br/>`;
+        }
+    </script>
+    </body>
+    </html>
+{{end}}
